@@ -7,7 +7,7 @@ def download_dataset():
     print("🚀 Starting ISIC 2016 dataset download from Kaggle Hub...")
     
     # Download latest version
-    path = kagglehub.dataset_download("mahmudulhasantasin/isic-2016-original-dataset")
+    path = kagglehub.dataset_download("kaustubhdikshit/neu-surface-defect-database")
     
     print(f"✅ Dataset downloaded to cache: {path}")
     
