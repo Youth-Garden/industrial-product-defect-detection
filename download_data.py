@@ -4,7 +4,7 @@ import os
 import shutil
 
 def download_dataset():
-    print("🚀 Starting NEU Surface Defect dataset download from Kaggle Hub...")
+    print("🚀 Starting dataset download from Kaggle Hub...")
     
     # Download latest version
     path = kagglehub.dataset_download("kaustubhdikshit/neu-surface-defect-database")
