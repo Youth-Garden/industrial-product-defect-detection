@@ -24,9 +24,9 @@ The Notebook is designed to run sequentially from top to bottom. Here are the ke
 
 ### 🔰 **Step 2: Dataset & Dataloader (Chapter 3)**
 
-- **Code:** `ISICDataset` Class, Transforms, `visualize_batch`.
+- **Code:** `NEUDataset` Class, Transforms, `visualize_batch`.
 - **Task:**
-  - Read images and masks from the disk.
+  - Read images and bounding boxes from the disk.
   - Create variables `train_dataset`, `test_dataset`.
   - Create **`train_loader`** and **`test_loader`**.
 - **⚠️ DEPENDENCY:**
@@ -35,8 +35,8 @@ The Notebook is designed to run sequentially from top to bottom. Here are the ke
 
 ### 🔰 **Step 3: Model (Chapter 4)**
 
-- **Code:** Initialize `model = smp.Unet(...)`.
-- **Task:** Load U-Net architecture (ResNet34 encoder) and Pretrained weights.
+- **Code:** Initialize Faster R-CNN model.
+- **Task:** Load Faster R-CNN architecture and fine-tune it for the NEU dataset.
 - **⚠️ DEPENDENCY:**
   - The variable `model` created here is the "main character" to be trained in Chapter 5.
 
@@ -54,7 +54,7 @@ The Notebook is designed to run sequentially from top to bottom. Here are the ke
 
 ### 🔰 **Step 5: Visualization & Evaluation (Chapter 5.2 & Chapter 6)**
 
-- **Code:** (To be implemented) Load `best_model.pth`, calculate IoU/Dice Score, visualize predictions.
+- **Code:** Load `best_model.pth`, calculate mAP/Precision/Recall, visualize predictions.
 - **⚠️ DEPENDENCY:**
   - Requires `best_model.pth` (result of Step 4).
   - Requires `test_loader` (from Step 2) to get test data.
@@ -63,13 +63,13 @@ The Notebook is designed to run sequentially from top to bottom. Here are the ke
 
 ## 3. Dependency Summary Table
 
-| Code Section              | Created Variable (Output)                  | Used In (Input For)                   | Status                        |
-| :------------------------ | :----------------------------------------- | :------------------------------------ | :---------------------------- |
-| **Chapter 0 (Constants)** | `DATASET_PATH`, `DEVICE`                   | Chapter 3, 4, 5, 5.2                  | ✅ Done                       |
-| **Chapter 3 (Dataset)**   | **`train_loader`**, **`test_loader`**      | **Chapter 5 (Training)**, Chapter 5.2 | ✅ Done                       |
-| **Chapter 4 (Model)**     | **`model`**                                | **Chapter 5 (Training)**              | ✅ Done                       |
-| **Chapter 5 (Training)**  | File **`best_model.pth`**, Trained `model` | **Chapter 5.2 (Visual / Evaluation)** | ✅ Code Done (Needs User Run) |
-| **Chapter 5.2 (Results)** | Charts, Demo Images, IoU Metrics           | Final Report                          | ⏳ Coming Soon                |
+| Code Section              | Created Variable (Output)                  | Used In (Input For)                   | Status             |
+| :------------------------ | :----------------------------------------- | :------------------------------------ | :----------------- |
+| **Chapter 0 (Constants)** | `DATASET_PATH`, `DEVICE`                   | Chapter 3, 4, 5, 5.2                  | ✅ Done            |
+| **Chapter 3 (Dataset)**   | **`train_loader`**, **`test_loader`**      | **Chapter 5 (Training)**, Chapter 5.2 | ✅ Done            |
+| **Chapter 4 (Model)**     | **`model`**                                | **Chapter 5 (Training)**              | ⏳ Code Incomplete |
+| **Chapter 5 (Training)**  | File **`best_model.pth`**, Trained `model` | **Chapter 5.2 (Visual / Evaluation)** | ⏳ Code Incomplete |
+| **Chapter 5.2 (Results)** | Charts, Demo Images, mAP Metrics           | Final Report                          | ⏳ Code Incomplete |
 
 ---
 

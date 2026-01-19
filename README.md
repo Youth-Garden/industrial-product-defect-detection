@@ -1,16 +1,14 @@
-# Medical Lesion Detection and Segmentation
-
-Project Report - Computer Vision Course
+# Industrial Product Defect Detection (NEU Surface Defect)
 
 ## Project Overview
 
-This project aims to develop a Deep Learning system for automatic detection and segmentation of skin lesions (melanoma) using the ISIC 2016 dataset.
+This project focuses on developing a Deep Learning system for automatic detection of surface defects on steel sheets (e.g., scratches, patches, pitted surfaces) using the NEU Surface Defect Database. The goal is to automate quality inspection in industrial production lines.
 
 **Key Technologies:**
 
 - Python 3
 - PyTorch (Deep Learning Framework)
-- Segmentation Models PyTorch (U-Net Architecture)
+- Torchvision (Object Detection models - Faster R-CNN)
 - Albumentations (Image Augmentation)
 - KaggleHub (Dataset Management)
 
@@ -20,8 +18,7 @@ Follow these steps to set up the development environment on Windows.
 
 ### 1. Prerequisites
 
-Ensure you have Python installed (version 3.8 or higher).
-You can check this by running:
+Ensure you have Python installed (version 3.8 or higher). You can check this by running:
 
 ```bash
 python --version
@@ -31,56 +28,39 @@ python --version
 
 It is recommended to use a virtual environment to manage dependencies.
 
-Open your specific terminal (Git Bash or Command Prompt) in the project directory:
+Open your terminal in the project directory:
 
 ```bash
 # Using Python launcher
 py -m venv .venv
 ```
 
-This will create a hidden folder named `.venv` containing the isolated environment.
+### 3. Install Dependencies
 
-### 3. Activate the Environment
-
-To start using this environment, you must activate it.
+Activate the virtual environment and install the required packages:
 
 ```bash
-# On Windows (Git Bash):
-source .venv/Scripts/activate
+# Activate virtual environment
+source .venv/Scripts/activate  # On Windows
 
-# On Windows (Command Prompt):
-.\.venv\Scripts\activate
-```
-
-When activated, you should see `(.venv)` at the beginning of your command prompt.
-
-### 4. Install Dependencies
-
-Install all required libraries listed in `requirements.txt`:
-
-```bash
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 5. Download Dataset
+### 4. Download Dataset
 
-This project uses the ISIC 2016 dataset. We have provided a script to automatically download it using `kagglehub`.
-
-Run the following command:
+Run the `download_data.py` script to download the NEU Surface Defect Database and set up the dataset path:
 
 ```bash
 python download_data.py
 ```
 
-This script will:
+This will create a `dataset_path.txt` file containing the path to the dataset.
 
-1. Download the dataset to your KaggleHub cache.
-2. Save the path to `dataset_path.txt` for the notebook to read.
+### 5. Run the Notebook
 
-## Project Structure
+Open the `index.ipynb` notebook in Jupyter Notebook or VS Code and execute the cells sequentially to:
 
-- `index.ipynb`: The main notebook containing the code, experiments, and report content.
-- `download_data.py`: Script to handle dataset downloading.
-- `requirements.txt`: List of python dependencies.
-- `.venv/`: Virtual environment directory (do not commit this).
-- `dataset_path.txt`: Local configuration file pointing to your data.
+1. **Train the model**: Follow the steps in Chapter 5 to train the Faster R-CNN model.
+2. **Evaluate the model**: Use the evaluation cells in Chapter 5.2 to calculate metrics like mAP, Precision, and Recall.
+3. **Visualize results**: Use the visualization cells in Chapter 5.3 to display predictions and bounding boxes on test images.
