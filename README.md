@@ -10,6 +10,7 @@ This project focuses on developing a Deep Learning system for automatic detectio
 - PyTorch (Deep Learning Framework)
 - Torchvision (Object Detection models - Faster R-CNN)
 - Albumentations (Image Augmentation)
+
 - KaggleHub (Dataset Management)
 
 ## Environment Setup
