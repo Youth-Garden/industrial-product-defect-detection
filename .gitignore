@@ -1,2 +1,3 @@
 .venv
 dataset_path.txt
+best_model.pth
