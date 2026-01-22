@@ -24,3 +24,4 @@ kagglehub>=0.1.0
 
 # Evaluation Metrics
 torchmetrics>=1.2.0
+pycocotools
