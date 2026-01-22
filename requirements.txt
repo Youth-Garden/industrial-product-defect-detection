@@ -22,3 +22,5 @@ tqdm>=4.65.0
 jupyter>=1.0.0
 kagglehub>=0.1.0
 
+# Evaluation Metrics
+torchmetrics>=1.2.0
